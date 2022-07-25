@@ -31,12 +31,13 @@ export default config;
 </script>
 
 <section>
-  {#switch animal} {:case "cat"}
-  <p>meow</p>
-  {:case "dog"}
-  <p>woof</p>
-  {:default}
-  <p>oink?</p>
+  {#switch animal}
+    {:case "cat"}
+      <p>meow</p>
+    {:case "dog"}
+      <p>woof</p>
+    {:default}
+      <p>oink?</p>
   {/switch}
 </section>
 ```
@@ -47,12 +48,13 @@ export default config;
 
 ```html
 <section>
-  {#switch animal} {:case "cat"}
-  <p>meow</p>
-  {:case "dog"}
-  <p>woof</p>
-  {:default}
-  <p>oink?</p>
+  {#switch animal}
+    {:case "cat"}
+      <p>meow</p>
+    {:case "dog"}
+      <p>woof</p>
+    {:default}
+      <p>oink?</p>
   {/switch}
 </section>
 ```
@@ -63,11 +65,11 @@ into `if/else` statements
 <section>
   <!-- Injected by svelte-switch-case -->
   {#if animal === "cat"}
-  <p>meow</p>
+    <p>meow</p>
   {:else if animal === "dog"}
-  <p>woof</p>
+    <p>woof</p>
   {:else}
-  <p>oink?</p>
+    <p>oink?</p>
   {/if}
 </section>
 ```
