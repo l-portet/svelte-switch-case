@@ -23,7 +23,7 @@ const config = {
 export default config;
 ```
 
-3. You're all set! Start using it in your Svelte components:
+3. Start using it in your Svelte components:
 
 ```html
 <script>
