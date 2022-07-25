@@ -8,8 +8,7 @@
     "clean": "rimraf dist/*",
     "test": "jest",
     "prepare": "npm test && npm run build",
-    "postinstall": "npm --prefix example/ install",
-    
+    "postinstall": "npm run build && npm --prefix example/ install",
     "example:dev": "npm run build && npm --prefix example/ run dev",
     "example:build": "npm run build && npm --prefix example/ run build"
   },
