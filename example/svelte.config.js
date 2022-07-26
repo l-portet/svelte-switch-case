@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 
 import sveltePreprocess from 'svelte-preprocess';
-import switchCase from '../dist/index.js';
+import switchCase from 'svelte-switch-case';
 
 const { typescript } = sveltePreprocess;
 

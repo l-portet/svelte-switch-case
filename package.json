@@ -3,19 +3,22 @@
   "version": "1.0.1",
   "description": "Switch case syntax for Svelte",
   "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
-    "build": "npm run clean && babel --out-dir dist --extensions \".ts\" src",
     "clean": "rimraf dist/*",
     "test": "jest",
-    "prepare": "npm test && npm run build",
-    "postinstall": "npm run build && npm --prefix example/ install",
-    "example:dev": "npm run build && npm --prefix example/ run dev",
-    "example:build": "npm run build && npm --prefix example/ run build"
+    "build": "npm run clean && babel --out-dir dist --extensions \".ts\" src",
+    "prepublishOnly": "npm run build && npm test",
+    "postinstall": "npm --prefix example/ install",
+    "example:dev": "npm --prefix example/ run dev",
+    "example:build": "npm --prefix example/ run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "svelte-parse": "^0.1.0",
+    "typescript": "^4.7.4",
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
@@ -23,9 +26,7 @@
     "@types/jest": "^28.1.6",
     "@types/node": "^18.0.6",
     "babel-plugin-add-module-exports": "^1.0.4",
-    "jest": "^28.1.3",
     "rimraf": "^3.0.2",
-    "svelte-parse": "^0.1.0",
-    "typescript": "^4.7.4"
+    "jest": "^28.1.3"
   }
 }
