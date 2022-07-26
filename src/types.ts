@@ -1,3 +1,5 @@
+import { SourceMap } from 'magic-string';
+
 export interface Node {
   type: string;
   name: string;
@@ -20,4 +22,14 @@ export interface Injection {
 export interface Position {
   start: number;
   end: number;
+}
+
+export interface PreprocessorOptions {
+  content: string;
+  filename: string;
+}
+
+export interface PreprocessorOutput {
+  code: string;
+  map: SourceMap;
 }

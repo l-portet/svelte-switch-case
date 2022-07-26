@@ -1,6 +1,13 @@
 import { parse } from 'svelte-parse';
-import { Injection, Node, Position } from './types';
+import {
+  Injection,
+  Node,
+  Position,
+  PreprocessorOptions,
+  PreprocessorOutput,
+} from './types';
 import { validateSyntax } from './validate';
+import MagicString, { SourceMap } from 'magic-string';
 
 function walk(node: Node, callbacks: { [key: string]: Function }) {
   const children = node.children || node.branches;
@@ -95,9 +102,10 @@ function buildInjection(
   };
 }
 
-function processMarkup({ content: code }: { content: string }): {
-  code: string;
-} {
+function processMarkup({
+  content: code,
+  filename,
+}: PreprocessorOptions): PreprocessorOutput {
   const tree = parse({ value: code, generatePositions: true }) as Node;
 
   let output = code;
@@ -144,7 +152,8 @@ function processMarkup({ content: code }: { content: string }): {
     output = output.slice(0, start) + value + output.slice(end);
   }
 
-  return { code: output };
+  const map: SourceMap = new MagicString(output, { filename }).generateMap();
+  return { code: output, map };
 }
 
 export default function preprocess(): { markup: Function } {
