@@ -2,6 +2,8 @@
 
 > Switch case syntax for your [Svelte](https://svelte.dev/) components. Inspired by this Rich Harris' talk: [Annoying Things About Svelte](https://youtu.be/dB_YjuAMH3o).
 
+[Demo](https://svelte-switch-case.netlify.app/) | [StackBlitz](https://stackblitz.com/edit/svelte-switch-case?file=src/routes/index.svelte)
+
 ## Getting started
 
 1. Install `svelte-switch-case`
