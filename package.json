@@ -1,9 +1,11 @@
 {
   "name": "svelte-switch-case",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Switch case syntax for Svelte",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf dist/*",
     "test": "jest",
