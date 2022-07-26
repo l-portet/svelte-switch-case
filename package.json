@@ -1,6 +1,6 @@
 {
   "name": "svelte-switch-case",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Switch case syntax for Svelte",
   "main": "dist/index.js",
   "files": [
