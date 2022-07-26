@@ -107,8 +107,7 @@ function processMarkup({
   filename,
 }: PreprocessorOptions): PreprocessorOutput {
   const tree = parse({ value: code, generatePositions: true }) as Node;
-
-  let output = code;
+  const output: MagicString = new MagicString(code, { filename });
   const injections: Injection[] = [];
 
   walk(tree, {
@@ -149,11 +148,11 @@ function processMarkup({
   });
 
   for (const { value, start, end } of injections.reverse()) {
-    output = output.slice(0, start) + value + output.slice(end);
+    output.overwrite(start, end, value);
   }
 
-  const map: SourceMap = new MagicString(output, { filename }).generateMap();
-  return { code: output, map };
+  const map: SourceMap = output.generateMap();
+  return { code: output.toString(), map };
 }
 
 export default function preprocess(): { markup: Function } {
