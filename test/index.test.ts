@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import switchCase from '../src';
 
 const { markup: processMarkup } = switchCase();
