@@ -11,7 +11,6 @@
     "test": "jest",
     "build": "npm run clean && babel --out-dir dist --extensions \".ts\" src",
     "prepublishOnly": "npm run build && npm test",
-    "postinstall": "npm --prefix example/ install",
     "example:dev": "npm --prefix example/ run dev",
     "example:build": "npm --prefix example/ run build"
   },
