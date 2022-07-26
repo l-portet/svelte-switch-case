@@ -4,6 +4,15 @@
 
 [Demo](https://svelte-switch-case.netlify.app/) | [StackBlitz](https://stackblitz.com/edit/svelte-switch-case?file=src/routes/index.svelte)
 
+<p>
+  <a href="https://github.com/l-portet/svelte-switch-case/blob/master/LICENSE.md">
+    <img src="https://badgen.net/github/license/l-portet/svelte-switch-case?color=orange"/>
+  </a>
+  <a href="https://npmjs.com/package/svelte-switch-case">
+    <img src="https://badgen.net/npm/v/svelte-switch-case"/>
+  </a>
+</p>
+
 ## Getting started
 
 1. Install `svelte-switch-case`
