@@ -1,8 +1,19 @@
+<p align="center">
+  <img src="https://i.ibb.co/x8dQHbq/banner.png" alt=""  />
+</p>
+<p align="center">
+  <img src="https://badgen.net/github/license/l-portet/svelte-switch-case?color=orange" />
+  <img src="https://badgen.net/npm/v/svelte-switch-case" />
+</p>
+<p align="center">
+  <a href="https://svelte-switch-case.netlify.app/">Demo</a> · <a href="https://stackblitz.com/edit/svelte-switch-case?file=src/routes/index.svelte">StackBlitz</a> · <a href="https://npmjs.com/package/svelte-switch-case">NPM Package</a>
+</p>
+
 # Svelte switch case
 
 > Switch case syntax for your [Svelte](https://svelte.dev/) components. Inspired by this Rich Harris' talk: [Annoying Things About Svelte](https://youtu.be/dB_YjuAMH3o).
 
-[Demo](https://svelte-switch-case.netlify.app/) | [StackBlitz](https://stackblitz.com/edit/svelte-switch-case?file=src/routes/index.svelte)
+<!--[StackBlitz](https://stackblitz.com/edit/svelte-switch-case?file=src/routes/index.svelte)
 
 <p>
   <a href="https://github.com/l-portet/svelte-switch-case/blob/master/LICENSE.md">
@@ -11,7 +22,7 @@
   <a href="https://npmjs.com/package/svelte-switch-case">
     <img src="https://badgen.net/npm/v/svelte-switch-case"/>
   </a>
-</p>
+</p>-->
 
 ## Getting started
 
