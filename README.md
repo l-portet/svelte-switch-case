@@ -36,7 +36,6 @@ export default config;
 
 ```html
 <!-- Component.svelte -->
-
 <script>
   let animal = 'dog';
 </script>
