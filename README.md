@@ -57,7 +57,7 @@ export default config;
 
 ## :mag: How it works
 
-`svlete-switch-case` transpiles the following code
+`svelte-switch-case` transpiles the following code
 
 ```html
 {#switch animal}
