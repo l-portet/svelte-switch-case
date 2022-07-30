@@ -23,7 +23,7 @@ npm i -D svelte-switch-case
 ```
 ```javascript
 // Then, in your svelte.config.js
-import switchCase from 'switchCase';
+import switchCase from 'svelte-switch-case';
 
 const config = {
   preprocess: [switchCase()],
