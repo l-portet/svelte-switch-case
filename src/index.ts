@@ -24,6 +24,17 @@ function walk(node: Node, callbacks: { [key: string]: Function }) {
   return node;
 }
 
+function buildConditions(expression: string, rawValue: string): string {
+  const sep = '||';
+  const values = rawValue.split(sep);
+  const conditions = [];
+
+  for (const value of values) {
+    conditions.push(`${expression} === ${value}`);
+  }
+  return conditions.join(` ${sep} `);
+}
+
 function getInjectionValue(
   type: string,
   expression: string,
@@ -32,9 +43,9 @@ function getInjectionValue(
   const comment = `<!-- Injected by svelte-switch-case -->`;
   switch (type) {
     case '_open_':
-      return `${comment}\n{#if ${expression} === ${value}}`;
+      return `${comment}\n{#if ${buildConditions(expression, value)}}`;
     case 'case':
-      return `{:else if ${expression} === ${value}}`;
+      return `{:else if ${buildConditions(expression, value)}}`;
     case 'default':
       return `{:else}`;
     case '_close_':
