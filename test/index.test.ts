@@ -61,6 +61,40 @@ describe('Svelte switch case preprocessor', () => {
     runTest(code, expectedOutput);
   });
 
+  it('should support multi conditions', () => {
+    const code = `
+      <script>
+        let animal = 'dog';
+      </script>
+
+      <section>
+        Can fly ?
+        {#switch animal}
+          {:case "cat" || "dog"}
+            <p>No</p>
+          {:case "bird"}
+            <p>Yes</p>
+        {/switch}
+      </section>
+    `;
+    const expectedOutput = `
+      <script>
+        let animal = 'dog';
+      </script>
+
+      <section>
+        Can fly ?
+        <!-- Injected by svelte-switch-case -->
+        {#if animal === "cat" || animal === "dog"}
+          <p>No</p>
+        {:else if animal === "bird"}
+          <p>Yes</p>
+        {/if}
+      </section>
+    `;
+    runTest(code, expectedOutput);
+  });
+
   it('should handle nested switch blocks', () => {
     const code = `
     <script>
