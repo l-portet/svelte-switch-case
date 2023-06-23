@@ -3,6 +3,7 @@ import {
   Injection,
   Node,
   Position,
+  Preprocessor,
   PreprocessorOptions,
   PreprocessorOutput,
 } from './types';
@@ -166,8 +167,9 @@ function processMarkup({
   return { code: output.toString(), map };
 }
 
-export default function preprocess(): { markup: Function } {
+export default function preprocess(): Preprocessor {
   return {
+    name: 'svelte-switch-case',
     markup: processMarkup,
   };
 }
