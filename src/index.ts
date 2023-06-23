@@ -1,13 +1,17 @@
 import { parse } from 'svelte-parse';
-import {
+import MagicString, { SourceMap } from 'magic-string';
+
+import { validateSyntax } from './validate';
+import pkg from '../package.json';
+
+import type {
   Injection,
   Node,
   Position,
+  Preprocessor,
   PreprocessorOptions,
   PreprocessorOutput,
 } from './types';
-import { validateSyntax } from './validate';
-import MagicString, { SourceMap } from 'magic-string';
 
 function walk(node: Node, callbacks: { [key: string]: Function }) {
   const children = node.children || node.branches;
@@ -166,8 +170,9 @@ function processMarkup({
   return { code: output.toString(), map };
 }
 
-export default function preprocess(): { markup: Function } {
+export default function preprocess(): Preprocessor {
   return {
+    name: pkg.name,
     markup: processMarkup,
   };
 }

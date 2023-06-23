@@ -1,5 +1,10 @@
 import { SourceMap } from 'magic-string';
 
+export interface Preprocessor {
+  name: string;
+  markup: (options: PreprocessorOptions) => PreprocessorOutput;
+}
+
 export interface Node {
   type: string;
   name: string;
