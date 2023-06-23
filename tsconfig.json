@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "types": ["jest", "node"],
     "outDir": "dist",
-    "noEmit": true
+    "noEmit": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules/**/*", "dist", "examples"]

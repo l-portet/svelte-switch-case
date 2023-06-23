@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import switchCase from '../src';
 
+import pkg from '../package.json';
+
 const { markup: processMarkup } = switchCase();
 
 function minify(strings) {
@@ -13,20 +15,29 @@ function minify(strings) {
     .trim();
 }
 
-function runTest(code, expectedOutput) {
+function runTest(code: string, expectedOutput: string) {
   code = minify(code);
   expectedOutput = minify(expectedOutput);
 
-  const { code: output } = processMarkup({ content: code });
+  const { code: output } = processMarkup({
+    filename: 'test.svelte',
+    content: code,
+  });
   expect(minify(output)).toBe(expectedOutput);
 }
 
-function runThrowingTest(code) {
-  const t = () => processMarkup({ content: code });
+function runThrowingTest(code: string) {
+  const t = () => processMarkup({ filename: 'test.svelte', content: code });
   expect(t).toThrow(SyntaxError);
 }
 
 describe('Svelte switch case preprocessor', () => {
+  it('preprocessor should have a name', () => {
+    const preprocessor = switchCase();
+
+    expect(preprocessor.name).toBe(pkg.name);
+  });
+
   it('should transpile a simple switch', () => {
     const code = `
     <script>
